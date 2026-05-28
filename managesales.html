@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Donations</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="../Js/main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Animal Charity</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="managesales.html">Manage Donations</a></li>
+                <li><a href="analytics.html">Data Analytics</a></li>
+                <li><a href="donate.html" class="donate-btn">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Manage Donations</h1>
+        <div id="donationList">
+            <h2>Donations List</h2>
+            <ul id="list"></ul>
+            <div class="buttons-container">
+                <button onclick="editSelected()">Edit Selected</button>
+                <button onclick="deleteSelected()">Delete Selected</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Animal Charity. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

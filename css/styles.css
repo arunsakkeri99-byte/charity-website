@@ -21,10 +21,12 @@ header {
     top: 0;
     z-index: 1000;
 }
+
 .logo {
     display: flex;
     align-items: center;
 }
+
 .nav-logo {
     width: 50px;
     height: 50px;
@@ -50,13 +52,14 @@ header {
     text-decoration: none;
     color: #000;
     padding: 10px 15px;
-    transition: color 0.3s; background-color : 0.3s;
+    /* FIX 1 — transition bug fixed (was: background-color : 0.3s) */
+    transition: color 0.3s, background-color 0.3s;
     border-radius: 5px;
 }
 
 .nav-links a:hover {
     background-color: #FFC700;
-    color: #333;;
+    color: #333;
 }
 
 .donate-btn {
@@ -66,9 +69,11 @@ header {
     color: #000;
     font-weight: bold;
 }
+
+/* FIX 2 — removed double semicolon (was: color: #333;;) */
 .donate-btn:hover {
     background-color: #FFC700;
-    color: #333;;
+    color: #333;
 }
 
 .hero {
@@ -99,15 +104,18 @@ header {
     margin-top: 10px;
     display: inline-block;
 }
+
+/* FIX 3 — removed double semicolon (was: color: #333;;) */
 .cta-btn:hover {
     background-color: #FFC700;
-    color: #333;;
+    color: #333;
 }
 
 .info-section {
     padding: 40px 20px;
     text-align: center;
 }
+
 .actions-section {
     display: flex;
     justify-content: space-around;
@@ -126,6 +134,7 @@ header {
     overflow: hidden;
     transition: transform 0.3s;
 }
+
 .action-card:hover {
     transform: translateY(-5px);
 }
@@ -225,6 +234,10 @@ header {
     transition: transform 0.3s;
 }
 
+.github-logo:hover {
+    transform: scale(1.1);
+}
+
 main form {
     max-width: 600px;
     margin: 0 auto;
@@ -257,8 +270,9 @@ main form button {
     cursor: pointer;
 }
 
+/* FIX 4 — hover now darkens the button (was same color as normal state) */
 main form button:hover {
-    background-color: #FFD700;
+    background-color: #e6c200;
 }
 
 .analytics-section {
@@ -308,16 +322,6 @@ li {
     align-items: center;
     margin-bottom: 10px;
 }
-.github-logo {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s;
-}
-
-.github-logo:hover {
-    transform: scale(1.1);
-}
-
 
 .donation-checkbox {
     margin-right: 10px;
@@ -339,10 +343,14 @@ li {
     cursor: pointer;
 }
 
+/* FIX 5 — hover now darkens the button (was same color as normal state) */
 .buttons-container button:hover {
-    background-color: #FFD700;
+    background-color: #e6c200;
 }
 
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -392,3 +400,33 @@ li {
     }
 }
 
+/* ─────────────────────────────────────────
+   ACCESSIBILITY — WCAG 2.4.1
+   Skip link — hidden until keyboard focus
+───────────────────────────────────────── */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 12px;
+    background: #000;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 0 0 8px 8px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ─────────────────────────────────────────
+   ACCESSIBILITY — WCAG 2.4.7
+   Visible focus ring for keyboard users
+───────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid #FFD700;
+    outline-offset: 2px;
+}
